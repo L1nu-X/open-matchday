@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-02T00:24:49Z",
+  "generated_utc": "2026-11-02T06:01:47Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -881,8 +881,8 @@
       "dropped_reversed_dupes": 1,
       "dropped_stale_postponed": 0,
       "corners": 0,
-      "results": 469,
-      "fixtures": 19,
+      "results": 470,
+      "fixtures": 18,
       "errors": [],
       "latest": "2026-11-01"
     },
@@ -907,10 +907,10 @@
       "dropped_reversed_dupes": 0,
       "dropped_stale_postponed": 0,
       "corners": 0,
-      "results": 132,
-      "fixtures": 21,
+      "results": 134,
+      "fixtures": 19,
       "errors": [],
-      "latest": "2026-11-01"
+      "latest": "2026-11-02"
     },
     {
       "league": "Liga de Expansión MX",
@@ -933,10 +933,10 @@
       "dropped_reversed_dupes": 0,
       "dropped_stale_postponed": 0,
       "corners": 0,
-      "results": 525,
-      "fixtures": 20,
+      "results": 528,
+      "fixtures": 17,
       "errors": [],
-      "latest": "2026-11-01"
+      "latest": "2026-11-02"
     },
     {
       "league": "J1 League",
