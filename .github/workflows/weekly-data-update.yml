@@ -1,0 +1,66 @@
+name: Weekly data update
+
+# Runs every Sunday at 00:30 UTC (plus manual dispatch).
+# Purpose:
+# 1. Rebuild all leagues from live sources.
+# 2. Catch fixture additions, removals, date/time changes and score corrections
+#    that appeared during the week.
+# 3. Compare the refreshed data with the repository state before the rebuild.
+# 4. Run the full correctness check before anything is pushed.
+# 5. Commit refreshed data only when real data changes exist.
+on:
+  schedule:
+    - cron: "30 0 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Snapshot current data
+        run: cp -r data data_before
+
+      - name: Rebuild all leagues from live sources
+        run: python build.py
+
+      - name: Weekly data change report
+        run: |
+          {
+            echo "## Weekly data change report"
+            echo
+            echo "Generated: $(date -u +%F)"
+            echo '```'
+            python scripts/diff_build.py data_before data | head -n 500
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate data correctness
+        run: python scripts/check_data.py
+
+      - name: Commit and push refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git reset -q data_before
+          if git diff --cached --quiet; then
+            echo "No weekly data changes."
+          else
+            git commit -m "Weekly data refresh $(date -u +%F)"
+            git push
+          fi
