@@ -144,10 +144,87 @@ def main() -> int:
         if os.path.exists(goals_path):
             check_goals(folder, load(goals_path))
 
-    for folder, want in PINNED_TOTALS.items():
-        got = totals.get(folder, 0)
-        if got != want:
-            errors.append(f"{folder}: total rows {got} != pinned {want}")
+for folder, want in PINNED_TOTALS.items():
+    got = totals.get(folder, 0)
+
+    if got != want:
+        errors.append(
+            f"{folder}: total rows {got} != pinned {want}"
+        )
+
+        # Diagnose the records causing the mismatch.
+        fdir = os.path.join("data", folder)
+
+        res_path = os.path.join(
+            fdir, f"results_{SEASON}.csv"
+        )
+
+        fix_path = os.path.join(
+            fdir, f"fixtures_{SEASON}.csv"
+        )
+
+        res_rows = load(res_path) if os.path.exists(res_path) else []
+        fix_rows = load(fix_path) if os.path.exists(fix_path) else []
+
+        warnings.append(
+            f"{folder}: results={len(res_rows)}, "
+            f"fixtures={len(fix_rows)}, "
+            f"excess={got - want}"
+        )
+
+        # Detect repeated match records within and across files.
+        matches = {}
+
+        for source, rows in [
+            ("results", res_rows),
+            ("fixtures", fix_rows),
+        ]:
+            for line_number, row in enumerate(rows, start=2):
+                key = (
+                    row.get("home", "").strip().casefold(),
+                    row.get("away", "").strip().casefold(),
+                    row.get("date", "").strip(),
+                )
+
+                matches.setdefault(key, []).append(
+                    (source, line_number, row)
+                )
+
+        for key, occurrences in matches.items():
+            if len(occurrences) > 1:
+                errors.append(
+                    f"{folder}: duplicate match {key} "
+                    f"found at "
+                    f"{[(source, line) for source, line, _ in occurrences]}"
+                )
+
+        # Detect fixtures that may have been rescheduled.
+        pairings = {}
+
+        for source, rows in [
+            ("results", res_rows),
+            ("fixtures", fix_rows),
+        ]:
+            for line_number, row in enumerate(rows, start=2):
+                pair = (
+                    row.get("home", "").strip().casefold(),
+                    row.get("away", "").strip().casefold(),
+                )
+
+                pairings.setdefault(pair, []).append(
+                    (
+                        source,
+                        line_number,
+                        row.get("date", ""),
+                    )
+                )
+
+        for pair, occurrences in pairings.items():
+            if len(occurrences) > 1:
+                warnings.append(
+                    f"{folder}: repeated pairing {pair}: "
+                    f"{occurrences}"
+                )
 
     if os.path.exists("build_summary.json"):
         with open("build_summary.json", encoding="utf-8") as fh:
