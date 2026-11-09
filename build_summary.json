@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-09T00:59:03Z",
+  "generated_utc": "2026-11-09T05:03:57Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -882,7 +882,7 @@
       "dropped_stale_postponed": 0,
       "corners": 0,
       "results": 489,
-      "fixtures": 0,
+      "fixtures": 7,
       "errors": [],
       "latest": "2026-11-08"
     },
@@ -907,10 +907,10 @@
       "dropped_reversed_dupes": 0,
       "dropped_stale_postponed": 0,
       "corners": 0,
-      "results": 141,
-      "fixtures": 12,
+      "results": 143,
+      "fixtures": 10,
       "errors": [],
-      "latest": "2026-11-08"
+      "latest": "2026-11-09"
     },
     {
       "league": "Liga de Expansión MX",
@@ -920,10 +920,10 @@
       "dropped_reversed_dupes": 0,
       "dropped_stale_postponed": 0,
       "corners": 0,
-      "results": 127,
-      "fixtures": 1,
+      "results": 128,
+      "fixtures": 4,
       "errors": [],
-      "latest": "2026-11-08"
+      "latest": "2026-11-09"
     },
     {
       "league": "Major League Soccer",
@@ -934,7 +934,7 @@
       "dropped_stale_postponed": 0,
       "corners": 0,
       "results": 545,
-      "fixtures": 2,
+      "fixtures": 20,
       "errors": [],
       "latest": "2026-11-08"
     },
