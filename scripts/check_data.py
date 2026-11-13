@@ -112,7 +112,58 @@ def check_goals(folder: str, rows: list[dict]) -> None:
         if not r.get("minute"):
             errors.append(f"{folder}: {where} — missing minute")
 
+def check_schedule_integrity(folder, results, fixtures):
 
+    if folder not in PINNED_TOTALS:
+        return
+
+    matches = {}
+
+    for source, rows in [
+        ("results", results),
+        ("fixtures", fixtures),
+    ]:
+
+        for line_number, row in enumerate(rows, start=2):
+
+            home = " ".join(
+                row.get("home", "").casefold().split()
+            )
+
+            away = " ".join(
+                row.get("away", "").casefold().split()
+            )
+
+            if not home or not away:
+                continue
+
+            key = (home, away)
+
+            matches.setdefault(key, []).append({
+                "source": source,
+                "line": line_number,
+                "date": row.get("date"),
+                "gw": row.get("gw"),
+            })
+
+    for pair, occurrences in matches.items():
+
+        if len(occurrences) > 1:
+
+            errors.append(
+                f"{folder}: duplicate pairing {pair}: "
+                f"{occurrences}"
+            )
+
+    expected = PINNED_TOTALS[folder]
+
+    if len(matches) != expected:
+
+        errors.append(
+            f"{folder}: {len(matches)} unique pairings "
+            f"but expected {expected}"
+        )
+      
 def main() -> int:
     if not os.path.isdir("data"):
         print("ERROR: data/ not found — run build.py first")
@@ -140,6 +191,12 @@ def main() -> int:
         fix_rows = load(fix_path) if os.path.exists(fix_path) else []
         totals[folder] += len(fix_rows)
         check_fixtures(folder, fix_rows)
+        
+        check_schedule_integrity(
+            folder,
+            res_rows,
+            fix_rows
+        )
 
         if os.path.exists(goals_path):
             check_goals(folder, load(goals_path))
