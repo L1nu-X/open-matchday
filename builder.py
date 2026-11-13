@@ -721,10 +721,23 @@ def build_league(lg: League, season: str) -> dict:
     rows, dup_fx = dedupe_fixtures(rows)
     rows, dup_rev = drop_reversed_fixture_dupes(rows)
     rows, stale_fx = drop_stale_postponed_fixtures(rows)
-    rows, rearranged_fx = reconcile_known_rearrangements(rows, lg.folder, season)
+
+    # NEW: Remove duplicate fixtures caused by rescheduling
+    rows, rearranged_fx = reconcile_known_rearrangements(
+        rows,
+        lg.folder,
+        season
+    )
+
     rows = finalize(rows)
-    # Stop ambiguous or incomplete pinned-league builds BEFORE writing CSVs.
-    assert_league_schedule(rows, lg.folder, season)
+
+    # NEW: Check the league schedule before saving
+    assert_league_schedule(
+        rows,
+        lg.folder,
+        season
+    )
+
     dropped = MERGE_STATS.pop("dropped_fd", 0)
 
     corners = 0
@@ -765,10 +778,22 @@ def build_league(lg: League, season: str) -> dict:
                         if m:
                             w.writerow([r.get("gw"), r.get("date"), r.get("home"), r.get("away"), m, "", "", ""])
 
-    return {"league": lg.name, "folder": folder, "dropped_fd": dropped,
-            "dropped_dup_fixtures": dup_fx, "dropped_reversed_dupes": dup_rev,
-            "dropped_stale_postponed": stale_fx,
-            "dropped_rearranged_fixtures": rearranged_fx, "corners": corners,
-            "results": len(results),
-            "fixtures": len(fixtures), "errors": errors,
-            "latest": max((r.get("date") or "") for r in results) if results else ""}
+    return {
+        "league": lg.name,
+        "folder": folder,
+        "dropped_fd": dropped,
+        "dropped_dup_fixtures": dup_fx,
+        "dropped_reversed_dupes": dup_rev,
+        "dropped_stale_postponed": stale_fx,
+
+        # NEW: Number of obsolete rearranged fixtures removed
+        "dropped_rearranged_fixtures": rearranged_fx,
+
+        "corners": corners,
+        "results": len(results),
+        "fixtures": len(fixtures),
+        "errors": errors,
+        "latest": max(
+            (r.get("date") or "") for r in results
+        ) if results else "",
+    }
