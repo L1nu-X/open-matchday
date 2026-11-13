@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-13T00:54:51Z",
+  "generated_utc": "2026-11-13T05:30:29Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -935,8 +935,8 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 372,
-      "fixtures": 8,
+      "results": 373,
+      "fixtures": 7,
       "errors": [],
       "latest": "2026-11-12"
     },
@@ -987,14 +987,14 @@
       "folder": "data/MEX_2_liga-expansion",
       "dropped_fd": 0,
       "dropped_dup_fixtures": 0,
-      "dropped_reversed_dupes": 1,
+      "dropped_reversed_dupes": 0,
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 129,
+      "results": 130,
       "fixtures": 2,
       "errors": [],
-      "latest": "2026-11-12"
+      "latest": "2026-11-13"
     },
     {
       "league": "Major League Soccer",
