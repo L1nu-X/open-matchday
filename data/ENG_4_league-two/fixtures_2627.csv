@@ -47,8 +47,9 @@ gw,date,time,home,away
 18,2026-12-01,20:45,Newport County,Walsall
 18,2026-12-01,20:45,Northampton Town,Fleetwood Town
 18,2026-12-01,20:45,Oldham Athletic,Bristol Rovers
-18,2026-12-01,20:45,Tranmere Rovers,Salford City
 18,2026-12-01,20:45,York City,Shrewsbury Town
+18,2026-12-05,16:00,Tranmere Rovers,Salford City
+9,2026-12-05,16:00,Walsall,Crawley Town
 19,2026-12-12,13:30,Chesterfield,Grimsby Town
 19,2026-12-12,13:30,Tranmere Rovers,York City
 19,2026-12-12,16:00,Barnet,Northampton Town
@@ -62,7 +63,6 @@ gw,date,time,home,away
 19,2026-12-12,16:00,Salford City,Colchester United
 19,2026-12-12,16:00,Shrewsbury Town,Port Vale
 9,2026-12-15,20:45,Colchester United,Port Vale
-9,2026-12-15,20:45,Walsall,Crawley Town
 20,2026-12-17,21:00,Crewe Alexandra,Salford City
 20,2026-12-19,13:30,Colchester United,Fleetwood Town
 20,2026-12-19,13:30,Northampton Town,Exeter City
