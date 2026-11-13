@@ -515,6 +515,126 @@ def drop_stale_postponed_fixtures(rows: list[dict]) -> tuple[list[dict], int]:
     return [r for r in rows if id(r) not in dead], len(dead)
 
 
+
+# Fixed full-season double round-robin leagues (2026/27). Only these leagues
+# have one permitted home/away meeting per ordered team pairing.
+# Other leagues/cups may legitimately have different formats.
+STRICT_LEAGUE_TOTALS_2627 = {
+    "ENG_1_premier-league": 380,
+    "ENG_2_championship": 552,
+    "ENG_3_league-one": 552,
+    "ENG_4_league-two": 552,
+    "GER_1_bundesliga": 306,
+    "GER_2_2-bundesliga": 306,
+    "GER_3_3-liga": 380,
+    "ESP_1_la-liga": 380,
+    "ITA_1_serie-a": 380,
+    "FRA_1_ligue-1": 306,
+    "FRA_2_ligue-2": 306,
+    "POR_1_primeira-liga": 306,
+    "NED_1_eredivisie": 306,
+    "TUR_1_super-lig": 306,
+}
+
+# Manually verified 2026/27 rearrangements.  Extend ONLY after confirming
+# the authoritative new date and ORIGINAL gameweek (do not choose the latest
+# date automatically). Format: (home, away) -> (date to keep, GW, obsolete dates).
+KNOWN_REARRANGEMENTS_2627 = {
+    "ENG_3_league-one": {
+        ("lutontown", "cambridgeunited"):
+            ("2027-02-02", 15, {"2026-11-14"}),
+        ("peterboroughunited", "oxfordunited"):
+            ("2026-12-05", 15, {"2026-11-14"}),
+    },
+    "ENG_4_league-two": {
+        ("tranmererovers", "salfordcity"):
+            ("2026-12-05", 18, {"2026-12-01"}),
+        ("walsall", "crawleytown"):
+            ("2026-12-05", 9, {"2026-12-15"}),
+    },
+}
+
+
+# Backward compatible name for existing scripts/test_rearrangements.py.
+KNOWN_REARRANGEMENTS = KNOWN_REARRANGEMENTS_2627
+
+
+def _match_pair(row: dict) -> tuple[str, str]:
+    """Normalise provider team aliases without risky substring matching."""
+    keys = []
+    for field in ("home", "away"):
+        raw = row.get(field) or ""
+        cleaned = norm_team(raw)
+        keys.append(norm_team(_TEAM_ALIASES.get(cleaned, raw)))
+    return keys[0], keys[1]
+
+
+def _has_full_time(row: dict) -> bool:
+    return (row.get("ft_home") not in (None, "") and
+            row.get("ft_away") not in (None, ""))
+
+
+def reconcile_known_rearrangements(
+    rows: list[dict], folder: str, season: str = "2627"
+) -> tuple[list[dict], int]:
+    """Remove explicitly verified obsolete unplayed rows, preserve original GW.
+
+    New/conflicting dates and any completed result are NEVER silently removed.
+    These are left for assert_league_schedule() to reject for human review.
+    """
+    if season != "2627":
+        return rows, 0
+    overrides = KNOWN_REARRANGEMENTS_2627.get(folder, {})
+    if not overrides:
+        return rows, 0
+    discarded: set[int] = set()
+    for pair, (correct_date, original_gw, obsolete_dates) in overrides.items():
+        candidates = [r for r in rows if _match_pair(r) == pair]
+        keep = [r for r in candidates if r.get("date") == correct_date]
+        if len(keep) != 1:
+            continue  # No confirmed copy or ambiguity: fail via schedule guard.
+        chosen = keep[0]
+        if any(_has_full_time(r) for r in candidates if r is not chosen):
+            continue  # Never discard a result, even if its date was superseded.
+        chosen["gw"] = original_gw
+        for r in candidates:
+            if (r is not chosen and not _has_full_time(r)
+                    and r.get("date") in obsolete_dates):
+                discarded.add(id(r))
+    return [r for r in rows if id(r) not in discarded], len(discarded)
+
+
+def assert_league_schedule(rows: list[dict], folder: str, season: str) -> None:
+    """Fail BEFORE writing the CSV if full-season spine is incomplete/duplicate.
+
+    This is a guard, NOT automatic resolution of unknown fixture dates.
+    """
+    if season != "2627" or folder not in STRICT_LEAGUE_TOTALS_2627:
+        return
+    expected = STRICT_LEAGUE_TOTALS_2627[folder]
+    pairings: dict[tuple[str, str], list[dict]] = {}
+    for row in rows:
+        pair = _match_pair(row)
+        if not all(pair):
+            raise ValueError(f"{folder}: missing home or away team in {row!r}")
+        pairings.setdefault(pair, []).append(row)
+    duplicates = [
+        (pair, [(r.get("date"), r.get("source"), r.get("gw")) for r in items])
+        for pair, items in pairings.items() if len(items) > 1
+    ]
+    if duplicates:
+        raise ValueError(
+            f"{folder}: conflicting repeat home/away fixtures — "
+            f"{duplicates[:8]!r}. Verify the correct kickoff and original GW "
+            "before adding a KNOWN_REARRANGEMENTS_2627 entry. No CSV overwritten."
+        )
+    if len(rows) != expected:
+        raise ValueError(
+            f"{folder}: expected {expected} unique matches but got {len(rows)}. "
+            "Build aborted before replacing the existing CSV files."
+        )
+
+
 def finalize(rows: list[dict]) -> list[dict]:
     for r in rows:
         for f in ("ft_home", "ft_away", "ht_home", "ht_away"):
@@ -601,7 +721,10 @@ def build_league(lg: League, season: str) -> dict:
     rows, dup_fx = dedupe_fixtures(rows)
     rows, dup_rev = drop_reversed_fixture_dupes(rows)
     rows, stale_fx = drop_stale_postponed_fixtures(rows)
+    rows, rearranged_fx = reconcile_known_rearrangements(rows, lg.folder, season)
     rows = finalize(rows)
+    # Stop ambiguous or incomplete pinned-league builds BEFORE writing CSVs.
+    assert_league_schedule(rows, lg.folder, season)
     dropped = MERGE_STATS.pop("dropped_fd", 0)
 
     corners = 0
@@ -644,7 +767,8 @@ def build_league(lg: League, season: str) -> dict:
 
     return {"league": lg.name, "folder": folder, "dropped_fd": dropped,
             "dropped_dup_fixtures": dup_fx, "dropped_reversed_dupes": dup_rev,
-            "dropped_stale_postponed": stale_fx, "corners": corners,
+            "dropped_stale_postponed": stale_fx,
+            "dropped_rearranged_fixtures": rearranged_fx, "corners": corners,
             "results": len(results),
             "fixtures": len(fixtures), "errors": errors,
             "latest": max((r.get("date") or "") for r in results) if results else ""}
