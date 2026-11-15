@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-15T05:14:41Z",
+  "generated_utc": "2026-11-15T07:11:50Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -288,7 +288,7 @@
       "dropped_fd": 0,
       "dropped_dup_fixtures": 0,
       "dropped_reversed_dupes": 0,
-      "dropped_stale_postponed": 2,
+      "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
       "results": 163,
@@ -303,7 +303,7 @@
       "dropped_dup_fixtures": 0,
       "dropped_reversed_dupes": 0,
       "dropped_stale_postponed": 0,
-      "dropped_rearranged_fixtures": 2,
+      "dropped_rearranged_fixtures": 0,
       "corners": 0,
       "results": 174,
       "fixtures": 378,
@@ -372,7 +372,7 @@
       "dropped_fd": 0,
       "dropped_dup_fixtures": 0,
       "dropped_reversed_dupes": 0,
-      "dropped_stale_postponed": 1,
+      "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
       "results": 75,
