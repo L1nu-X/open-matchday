@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-21T01:34:04Z",
+  "generated_utc": "2026-11-21T06:01:00Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -946,13 +946,13 @@
       "dropped_fd": 0,
       "dropped_dup_fixtures": 0,
       "dropped_reversed_dupes": 0,
-      "dropped_stale_postponed": 1,
+      "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 489,
+      "results": 490,
       "fixtures": 7,
       "errors": [],
-      "latest": "2026-11-08"
+      "latest": "2026-11-20"
     },
     {
       "league": "Primera Nacional",
@@ -977,10 +977,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 144,
-      "fixtures": 9,
+      "results": 147,
+      "fixtures": 6,
       "errors": [],
-      "latest": "2026-11-14"
+      "latest": "2026-11-21"
     },
     {
       "league": "Liga de Expansión MX",
@@ -1033,10 +1033,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 24,
-      "fixtures": 132,
+      "results": 25,
+      "fixtures": 131,
       "errors": [],
-      "latest": "2026-11-20"
+      "latest": "2026-11-21"
     },
     {
       "league": "Chinese Super League",
