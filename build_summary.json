@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-23T01:11:06Z",
+  "generated_utc": "2026-11-23T06:10:54Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -945,10 +945,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 494,
-      "fixtures": 4,
+      "results": 495,
+      "fixtures": 3,
       "errors": [],
-      "latest": "2026-11-22"
+      "latest": "2026-11-23"
     },
     {
       "league": "Primera Nacional",
@@ -959,10 +959,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 657,
-      "fixtures": 7,
+      "results": 658,
+      "fixtures": 6,
       "errors": [],
-      "latest": "2026-11-22"
+      "latest": "2026-11-23"
     },
     {
       "league": "Liga MX",
@@ -973,10 +973,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 152,
-      "fixtures": 1,
+      "results": 153,
+      "fixtures": 0,
       "errors": [],
-      "latest": "2026-11-22"
+      "latest": "2026-11-23"
     },
     {
       "league": "Liga de Expansión MX",
@@ -998,13 +998,13 @@
       "dropped_fd": 0,
       "dropped_dup_fixtures": 0,
       "dropped_reversed_dupes": 0,
-      "dropped_stale_postponed": 1,
+      "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 551,
-      "fixtures": 19,
+      "results": 553,
+      "fixtures": 18,
       "errors": [],
-      "latest": "2026-11-22"
+      "latest": "2026-11-23"
     },
     {
       "league": "J1 League",
