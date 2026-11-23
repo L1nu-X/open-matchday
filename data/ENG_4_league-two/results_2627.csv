@@ -173,3 +173,15 @@ gw,date,time,home,away,ft_home,ft_away,ft_result,ht_home,ht_away,ht_result,home_
 15,2026-11-14,15:00,Shrewsbury Town,Oldham Athletic,2,1,H,0,0,D,16,5,3,2,5,18,3,3,,,,,1,2,0,0,,fixturedl
 15,2026-11-14,15:00,Swindon Town,Grimsby Town,1,4,A,0,2,A,9,21,3,9,10,8,6,11,,,,,3,0,1,0,,fixturedl
 15,2026-11-14,17:30,Fleetwood Town,Tranmere Rovers,1,0,H,0,0,D,13,10,3,0,9,8,8,6,,,,,1,1,0,0,,fixturedl
+16,2026-11-21,13:30,Gillingham,Crewe Alexandra,3,3,D,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,13:30,Newport County,Swindon Town,2,0,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Accrington Stanley,Salford City,1,1,D,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Barnet,Port Vale,2,1,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Cheltenham Town,Bristol Rovers,0,3,A,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Chesterfield,Shrewsbury Town,4,1,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Crawley Town,Fleetwood Town,2,1,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Grimsby Town,Rotherham United,0,0,D,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Northampton Town,Rochdale,3,2,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Oldham Athletic,Exeter City,1,1,D,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,Tranmere Rovers,Colchester United,2,1,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+16,2026-11-21,16:00,York City,Walsall,0,0,D,,,,,,,,,,,,,,,,,,,,,fixturedl
