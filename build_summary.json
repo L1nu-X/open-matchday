@@ -1,6 +1,6 @@
 {
   "season": "2627",
-  "generated_utc": "2026-11-26T07:19:20Z",
+  "generated_utc": "2026-11-27T07:09:04Z",
   "leagues": [
     {
       "league": "Premier League",
@@ -95,10 +95,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 72,
-      "fixtures": 72,
+      "results": 90,
+      "fixtures": 54,
       "errors": [],
-      "latest": "2026-11-05"
+      "latest": "2026-11-26"
     },
     {
       "league": "UEFA Conference League",
@@ -109,10 +109,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 54,
-      "fixtures": 54,
+      "results": 72,
+      "fixtures": 36,
       "errors": [],
-      "latest": "2026-11-05"
+      "latest": "2026-11-26"
     },
     {
       "league": "EFL Cup (Carabao Cup)",
@@ -123,7 +123,7 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 68,
+      "results": 84,
       "fixtures": 4,
       "errors": [],
       "latest": "2026-10-29"
@@ -179,7 +179,7 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 49,
+      "results": 51,
       "fixtures": 8,
       "errors": [],
       "latest": "2026-10-28"
@@ -291,10 +291,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 179,
-      "fixtures": 373,
+      "results": 180,
+      "fixtures": 372,
       "errors": [],
-      "latest": "2026-11-24"
+      "latest": "2026-11-26"
     },
     {
       "league": "EFL League Two",
@@ -452,17 +452,13 @@
     },
     {
       "league": "Primeira Liga",
-      "folder": "data/POR_1_primeira-liga",
-      "dropped_fd": 0,
-      "dropped_dup_fixtures": 0,
-      "dropped_reversed_dupes": 0,
-      "dropped_stale_postponed": 0,
-      "dropped_rearranged_fixtures": 0,
-      "corners": 98,
-      "results": 98,
-      "fixtures": 208,
-      "errors": [],
-      "latest": "2026-11-08"
+      "folder": "POR_1_primeira-liga",
+      "results": 0,
+      "fixtures": 0,
+      "errors": [
+        "POR_1_primeira-liga: conflicting repeat home/away fixtures — [(('sportingcp', 'santaclara'), [('2027-01-02', 'espn', 18), ('2027-01-10', 'fixturedl', 17)])]. Verify the correct kickoff and original GW before adding a KNOWN_REARRANGEMENTS_2627 entry. No CSV overwritten."
+      ],
+      "latest": ""
     },
     {
       "league": "Eredivisie",
@@ -890,7 +886,7 @@
       "results": 0,
       "fixtures": 0,
       "errors": [
-        "FRA_2_ligue-2: conflicting repeat home/away fixtures — [(('paufc', 'stadedereims'), [('2027-01-14', 'fixturedl', 17), ('2027-01-18', 'espn', 21)])]. Verify the correct kickoff and original GW before adding a KNOWN_REARRANGEMENTS_2627 entry. No CSV overwritten."
+        "FRA_2_ligue-2: conflicting repeat home/away fixtures — [(('paufc', 'stadedereims'), [('2027-01-14', 'fixturedl', 17), ('2027-01-18', 'espn', 21)]), (('enavantguingamp', 'asnancylorraine'), [('2027-01-21', 'fixturedl', 18), ('2027-01-25', 'espn', 22)])]. Verify the correct kickoff and original GW before adding a KNOWN_REARRANGEMENTS_2627 entry. No CSV overwritten."
       ],
       "latest": ""
     },
@@ -917,10 +913,10 @@
       "dropped_stale_postponed": 3,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 361,
-      "fixtures": 19,
+      "results": 362,
+      "fixtures": 18,
       "errors": [],
-      "latest": "2026-11-25"
+      "latest": "2026-11-26"
     },
     {
       "league": "Série B",
@@ -946,7 +942,7 @@
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
       "results": 497,
-      "fixtures": 3,
+      "fixtures": 4,
       "errors": [],
       "latest": "2026-11-26"
     },
@@ -973,10 +969,10 @@
       "dropped_stale_postponed": 0,
       "dropped_rearranged_fixtures": 0,
       "corners": 0,
-      "results": 155,
-      "fixtures": 6,
+      "results": 157,
+      "fixtures": 4,
       "errors": [],
-      "latest": "2026-11-26"
+      "latest": "2026-11-27"
     },
     {
       "league": "Liga de Expansión MX",

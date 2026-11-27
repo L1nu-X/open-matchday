@@ -1,11 +1,11 @@
 gw,date,time,home,away,ft_home,ft_away,ft_result,ht_home,ht_away,ht_result,home_shots,away_shots,home_target,away_target,home_fouls,away_fouls,home_corners,away_corners,home_corners_1h,away_corners_1h,home_corners_2h,away_corners_2h,home_yellow,away_yellow,home_red,away_red,goal_minutes,source
 1,2026-09-08,17:45,AEK Athens,LASK,1,0,H,,,,,,,,,,,,,,,,,,,,,fixturedl
-1,2026-09-08,17:45,Club Brugge,Aston Villa,2,3,A,,,,,,,,,,,,,,,,,,,,,fixturedl
+1,2026-09-08,17:45,Club Brugge,Aston Villa,2,3,A,,,,,,,,,,,,,,,,,,,,"11,19,22,43,61",fixturedl
 1,2026-09-08,20:00,B. Dortmund,Villarreal,3,2,H,,,,,,,,,,,,,,,,,,,,"53,80,85,93",fixturedl
-1,2026-09-08,20:00,Lille,Real Betis,2,3,A,,,,,,,,,,,,,,,,,,,,,fixturedl
-1,2026-09-08,20:00,Porto,Man City,0,2,A,,,,,,,,,,,,,,,,,,,,,fixturedl
+1,2026-09-08,20:00,Lille,Real Betis,2,3,A,,,,,,,,,,,,,,,,,,,,53,fixturedl
+1,2026-09-08,20:00,Porto,Man City,0,2,A,,,,,,,,,,,,,,,,,,,,91,fixturedl
 1,2026-09-08,20:00,Real Madrid,Inter,2,1,H,,,,,,,,,,,,,,,,,,,,"14,23,77",fixturedl
-1,2026-09-09,17:45,Barcelona,Feyenoord,5,1,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+1,2026-09-09,17:45,Barcelona,Feyenoord,5,1,H,,,,,,,,,,,,,,,,,,,,"3,22,57,82",fixturedl
 1,2026-09-09,17:45,Stuttgart,Viking,3,1,H,,,,,,,,,,,,,,,,,,,,"20,22,26",fixturedl
 1,2026-09-09,20:00,Liverpool,Atleti,2,1,H,,,,,,,,,,,,,,,,,,,,"17,40,50",fixturedl
 1,2026-09-09,20:00,Napoli,Arsenal,0,1,A,,,,,,,,,,,,,,,,,,,,75,fixturedl
@@ -17,7 +17,7 @@ gw,date,time,home,away,ft_home,ft_away,ft_result,ht_home,ht_away,ht_result,home_
 1,2026-09-10,20:00,Como,Leipzig,4,1,H,,,,,,,,,,,,,,,,,,,,"15,38,54,58,90",fixturedl
 1,2026-09-10,20:00,Man Utd,Sabah,4,0,H,,,,,,,,,,,,,,,,,,,,"42,45,68",fixturedl
 1,2026-09-10,20:00,Slavia Praha,Lens,2,3,A,,,,,,,,,,,,,,,,,,,,"51,73,88,93",fixturedl
-2,2026-10-13,17:45,Lens,Sporting CP,0,2,A,,,,,,,,,,,,,,,,,,,,,fixturedl
+2,2026-10-13,17:45,Lens,Sporting CP,0,2,A,,,,,,,,,,,,,,,,,,,,"22,74",fixturedl
 2,2026-10-13,17:45,Sabah,Slavia Praha,2,0,H,,,,,,,,,,,,,,,,,,,,"49,88",fixturedl
 2,2026-10-13,20:00,Arsenal,Lille,3,0,H,,,,,,,,,,,,,,,,,,,,"64,67,71",fixturedl
 2,2026-10-13,20:00,Atleti,Man Utd,2,0,H,,,,,,,,,,,,,,,,,,,,"1,79",fixturedl
@@ -28,7 +28,7 @@ gw,date,time,home,away,ft_home,ft_away,ft_result,ht_home,ht_away,ht_result,home_
 2,2026-10-13,20:00,Villarreal,Napoli,3,1,H,,,,,,,,,,,,,,,,,,,,"8,23,26,86",fixturedl
 2,2026-10-14,17:45,Feyenoord,Como,3,2,H,,,,,,,,,,,,,,,,,,,,"18,20,52,81,93",fixturedl
 2,2026-10-14,17:45,LASK,Liverpool,3,6,A,,,,,,,,,,,,,,,,,,,,"24,37,63,66,72",fixturedl
-2,2026-10-14,20:00,Aston Villa,Fenerbahçe,6,0,H,,,,,,,,,,,,,,,,,,,,,fixturedl
+2,2026-10-14,20:00,Aston Villa,Fenerbahçe,6,0,H,,,,,,,,,,,,,,,,,,,,"31,39,68,72,90",fixturedl
 2,2026-10-14,20:00,Bodø/Glimt,B. Dortmund,1,0,H,,,,,,,,,,,,,,,,,,,,52,fixturedl
 2,2026-10-14,20:00,Man City,Paris,2,4,A,,,,,,,,,,,,,,,,,,,,"13,32,62,75",fixturedl
 2,2026-10-14,20:00,Real Betis,Porto,3,2,H,,,,,,,,,,,,,,,,,,,,"47,61,74,84",fixturedl
@@ -83,7 +83,7 @@ gw,date,time,home,away,ft_home,ft_away,ft_result,ht_home,ht_away,ht_result,home_
 5,2026-11-25,18:45,Sabah,Barcelona,1,4,A,,,,,,,,,,,,,,,,,,,,"31,55,60,63",fixturedl
 5,2026-11-25,18:45,Slavia Praha,Villarreal,0,1,A,,,,,,,,,,,,,,,,,,,,62,fixturedl
 5,2026-11-25,21:00,Atleti,Viking,2,0,H,,,,,,,,,,,,,,,,,,,,19,fixturedl
-5,2026-11-25,21:00,Club Brugge,Liverpool,0,3,A,,,,,,,,,,,,,,,,,,,,,fixturedl
+5,2026-11-25,21:00,Club Brugge,Liverpool,0,3,A,,,,,,,,,,,,,,,,,,,,"13,79,82",fixturedl
 5,2026-11-25,21:00,Inter,Stuttgart,2,0,H,,,,,,,,,,,,,,,,,,,,"57,74",fixturedl
 5,2026-11-25,21:00,Lille,Bayern München,2,1,H,,,,,,,,,,,,,,,,,,,,"62,65",fixturedl
 5,2026-11-25,21:00,Paris,Roma,2,2,D,,,,,,,,,,,,,,,,,,,,"5,62,78",fixturedl
